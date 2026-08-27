@@ -41,7 +41,7 @@ export function VisionSection() {
 
               <div className="relative aspect-4/3 overflow-hidden grain">
                 <Image
-                  src="/images/expr-visual-art.png"
+                  src="/kalamanch-v2/images/expr-visual-art.png"
                   alt="Impasto brushstrokes of ochre and indigo pigment on raw canvas"
                   fill
                   sizes="(max-width: 1024px) 50vw, 25vw"
@@ -51,7 +51,7 @@ export function VisionSection() {
 
               <div className="relative aspect-4/3 overflow-hidden grain">
                 <Image
-                  src="/images/expr-performing-art.png"
+                  src="/kalamanch-v2/images/expr-performing-art.png"
                   alt="A classical Indian dancer mid-turn, skirt and ankle bells in motion"
                   fill
                   sizes="(max-width: 1024px) 50vw, 25vw"

@@ -60,7 +60,7 @@ export function SiteHeader() {
               )}
             >
               <Image
-                src="/kalamanch-logo.png"
+                src="/kalamanch-v2/kalamanch-logo.png"
                 alt=""
                 fill
                 sizes="48px"

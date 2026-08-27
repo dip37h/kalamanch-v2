@@ -16,7 +16,7 @@ export function SiteFooter() {
             <a href="#top" className="flex items-center gap-3" aria-label="Kalamanch, back to top">
               <span className="relative size-10 shrink-0">
                 <Image
-                  src="/kalamanch-logo.png"
+                  src="/kalamanch-v2/kalamanch-logo.png"
                   alt=""
                   fill
                   sizes="40px"

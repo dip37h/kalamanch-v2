@@ -4,8 +4,6 @@ const nextConfig = {
 
   basePath: '/kalamanch-v2',
 
-  trailingSlash: true,
-
   typescript: {
     ignoreBuildErrors: true,
   },
@@ -13,6 +11,8 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+
+  trailingSlash: true,
 }
 
 export default nextConfig

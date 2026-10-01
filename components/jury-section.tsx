@@ -9,7 +9,7 @@ export function JurySection() {
       <div className="mx-auto max-w-[1340px] px-5 sm:px-8 lg:px-14">
         <SectionHeading
           eyebrow="The Jury"
-          title="The jury"
+          title="The Jury"
           intro="A panel of people with expertise across art, culture and artistic practice, helping guide the Kalamanch ecosystem."
         />
 

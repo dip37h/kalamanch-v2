@@ -9,13 +9,13 @@ export function Hero() {
     >
       <div className="absolute inset-0">
         <Image
-          src="/kalamanch-v2/images/hero-stage.png"
-          alt="An empty stage lit by a single shaft of warm light, with a tabla and a folded handwoven textile at the edge of the light"
-          fill
-          priority
-          sizes="100vw"
-          className="animate-drift object-cover object-center"
-        />
+  src="/kalamanch-v2/images/hero-stage.png"
+  alt="An empty stage lit by a single shaft of warm light, with a tabla and a folded handwoven textile at the edge of the light"
+  fill
+  priority
+  sizes="100vw"
+  className="animate-drift object-cover object-center"
+/>
         <div
           aria-hidden="true"
           className="absolute inset-0 bg-linear-to-b from-indigo/25 via-indigo/55 to-indigo/95"

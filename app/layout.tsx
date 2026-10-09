@@ -53,15 +53,11 @@ export const metadata: Metadata = {
       'A cultural platform for visual art, performing arts, heritage and global cultural exchange.',
     images: ['/images/hero-stage.png'],
   },
-  generator: 'v0.app',
-  icons: {
-    icon: [
-      { url: '/icon-light-32x32.png', media: '(prefers-color-scheme: light)' },
-      { url: '/icon-dark-32x32.png', media: '(prefers-color-scheme: dark)' },
-      { url: '/icon.svg', type: 'image/svg+xml' },
-    ],
-    apple: '/apple-icon.png',
-  },
+  generator: 'Dipesh Mishra',
+ icons: {
+  icon: '/kalamanch-v2/icon.png',
+  apple: '/kalamanch-v2/icon.png',
+},
 }
 
 export const viewport: Viewport = {

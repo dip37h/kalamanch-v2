@@ -53,17 +53,19 @@ export function SiteHeader() {
           )}
         >
           <a href="#top" className="group flex items-center gap-3" aria-label="Kalamanch, home">
-            <span
-              className={cn(
-                'relative shrink-0 transition-all duration-500 ease-editorial',
-                compact ? 'size-8' : 'size-10',
-              )}
-            >
+            
+<span
+  className={cn(
+    'relative shrink-0 transition-all duration-500 ease-editorial',
+    compact ? 'size-11' : 'size-16',
+  )}
+>
+
               <Image
                 src="/kalamanch-v2/kalamanch-logo.png"
                 alt=""
                 fill
-                sizes="48px"
+                sizes="64px"
                 priority
                 className="object-contain"
               />
@@ -71,7 +73,7 @@ export function SiteHeader() {
             <span className="flex flex-col leading-none">
               <span
                 className={cn(
-                  'km-display text-[1.05rem] tracking-[0.16em] uppercase transition-colors duration-500',
+                  'km-display text-[1.5rem] tracking-[0.16em] uppercase transition-colors duration-500',
                   compact ? 'text-ink' : 'text-bone',
                 )}
               >
@@ -79,7 +81,7 @@ export function SiteHeader() {
               </span>
               <span
                 className={cn(
-                  'mt-1 text-[0.55rem] font-medium tracking-[0.2em] uppercase transition-colors duration-500',
+                  'mt-1 text-[0.65rem] font-medium tracking-[0.2em] uppercase transition-colors duration-500',
                   compact ? 'text-muted-foreground' : 'text-bone/60',
                 )}
               >

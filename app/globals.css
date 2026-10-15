@@ -1,0 +1,245 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+/*
+  Kalamanch × MSF palette — values taken from monicasarinfoundation.com.
+  Hierarchy:
+    blue      → primary brand, links, primary sections
+    navy      → deep contrast (hero overlay, footer, text on yellow)
+    yellow    → the single most important action / highlight
+    orange    → graphic accents (use marigold-deep for small text on light)
+    purple, green, peach → supporting category colours, never for body text
+    canvas / paper → light backgrounds
+*/
+@theme inline {
+  --color-canvas: #fbf8f2;
+  --color-paper: #f3ecdf;
+  --color-ink: #2d2929;
+  --color-blue: #2f4acd;
+  --color-navy: #182567;
+  --color-yellow: #fec400;
+  --color-orange: #ff8b00;
+  --color-marigold-deep: #b45800;
+  --color-peach: #fcaf69;
+  --color-purple: #6e1e83;
+  --color-green: #a2c837;
+  --color-green-deep: #4d6a0f;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-destructive: var(--destructive);
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-fraunces), Georgia, 'Times New Roman', serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, 'SFMono-Regular', monospace;
+  --font-kala: var(--font-jaini), 'Noto Sans Devanagari', serif;
+
+  --color-mist: #e9eefa;
+  --color-sage: #d8e8d4;
+
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 6px;
+  --radius-xl: 8px;
+  --radius-2xl: 12px;
+
+  --ease-editorial: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+:root {
+  color-scheme: light;
+  --background: #fbf8f2;
+  --foreground: #2d2929;
+  --card: #ffffff;
+  --card-foreground: #2d2929;
+  --popover: #ffffff;
+  --popover-foreground: #2d2929;
+  --primary: #2f4acd;
+  --primary-foreground: #ffffff;
+  --secondary: #f3ecdf;
+  --secondary-foreground: #2d2929;
+  --muted: #f3ecdf;
+  --muted-foreground: #5a5250;
+  --accent: #fec400;
+  --accent-foreground: #182567;
+  --destructive: #b42318;
+  --border: rgba(45, 41, 41, 0.12);
+  --input: rgba(45, 41, 41, 0.24);
+  --ring: #2f4acd;
+  --radius: 4px;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    line-height: 1.6;
+  }
+  /* page-wide paper grain, kept faint so it never competes with text */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 300;
+    pointer-events: none;
+    opacity: 0.05;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.18  0 0 0 0 0.16  0 0 0 0 0.16  0 0 0 1 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  }
+  ::selection {
+    background: #fec400;
+    color: #182567;
+  }
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 3px;
+  }
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    -webkit-tap-highlight-color: transparent;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@utility km-display {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  letter-spacing: -0.018em;
+  line-height: 1.04;
+}
+
+@utility eyebrow {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+/* stronger print grain for image and colour blocks */
+@utility grain {
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    mix-blend-mode: multiply;
+    opacity: 0.28;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='matrix' values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.45 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  }
+}
+
+/* repeating eight-point star lattice drawn from the Kalamanch mark; tinted with currentColor via mask */
+@utility star-lattice {
+  background-color: currentColor;
+  -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'><g fill='none' stroke='black' stroke-width='1'><rect x='20' y='20' width='16' height='16'/><rect x='20' y='20' width='16' height='16' transform='rotate(45 28 28)'/></g><circle cx='0' cy='0' r='1.5'/><circle cx='56' cy='0' r='1.5'/><circle cx='0' cy='56' r='1.5'/><circle cx='56' cy='56' r='1.5'/></svg>");
+  mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'><g fill='none' stroke='black' stroke-width='1'><rect x='20' y='20' width='16' height='16'/><rect x='20' y='20' width='16' height='16' transform='rotate(45 28 28)'/></g><circle cx='0' cy='0' r='1.5'/><circle cx='56' cy='0' r='1.5'/><circle cx='0' cy='56' r='1.5'/><circle cx='56' cy='56' r='1.5'/></svg>");
+  -webkit-mask-size: 56px 56px;
+  mask-size: 56px 56px;
+}
+
+/* toran-style scalloped edge; colour comes from currentColor */
+@utility scallop-down {
+  height: 14px;
+  background: radial-gradient(circle at 50% 0, currentColor 13px, transparent 13.5px) 0 0 / 28px
+    14px repeat-x;
+}
+@utility scallop-up {
+  height: 14px;
+  background: radial-gradient(circle at 50% 100%, currentColor 13px, transparent 13.5px) 0 0 / 28px
+    14px repeat-x;
+}
+
+/* scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity 0.95s var(--ease-editorial),
+    transform 0.95s var(--ease-editorial);
+}
+.reveal[data-in-view='true'] {
+  opacity: 1;
+  transform: none;
+}
+
+/* 3D flip cards: both faces share one grid cell so the card sizes to the taller face */
+.flip-scene {
+  perspective: 1800px;
+}
+.flip-inner {
+  display: grid;
+  transform-style: preserve-3d;
+  transition: transform 0.9s var(--ease-editorial);
+}
+.flip-inner[data-flipped='true'] {
+  transform: rotateY(180deg);
+}
+.flip-face {
+  grid-area: 1 / 1;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.flip-back {
+  transform: rotateY(180deg);
+}
+
+@keyframes kmDriftSlow {
+  0%,
+  100% {
+    transform: scale(1.06) translate3d(0, 0, 0);
+  }
+  50% {
+    transform: scale(1.12) translate3d(-1.5%, -1.2%, 0);
+  }
+}
+.animate-drift {
+  animation: kmDriftSlow 34s ease-in-out infinite;
+}
+
+@keyframes kmSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.animate-spin-slow {
+  animation: kmSpin 80s linear infinite;
+}
+
+@keyframes kmMarquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+.animate-marquee {
+  animation: kmMarquee 48s linear infinite;
+}

@@ -63,7 +63,7 @@ export function EventsSection() {
               id="art-to-start"
               index="02"
               tag="Launch + Momentum"
-              titleTop="Art to"
+              titleTop="Art 2"
               titleBottom="Start"
               body="Our first-stage launch — taking Kala Manch beyond the metros into the cultural heartlands of India."
               meta={['Stage One', '4 States', '8 Cities']}

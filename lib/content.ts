@@ -4,15 +4,16 @@ export type NavItem = NavLink & { children?: NavLink[] }
 export const navItems: NavItem[] = [
   { label: 'Home', href: '#top' },
   { label: 'About Us', href: '#vision' },
-  { label: 'Advisory Board', href: '#jury' },
+ /* { label: 'Advisory Board', href: '#jury' },*/
   {
     label: 'Initiatives',
     href: '#events',
     children: [
       { label: 'Kala Khoj', href: '#kala-khoj' },
-      { label: 'Art to Start', href: '#art-to-start' },
+      { label: 'Art 2 Start', href: '#art-2-start' },
     ],
-  },
+    },
+  { label: 'Gallery', href: '/kalamanch-v2/gallery/' },
   { label: 'Contact Us', href: '#join' },
 ]
 

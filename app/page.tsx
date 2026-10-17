@@ -15,7 +15,9 @@ export default function HomePage() {
       <main id="main">
         <Hero />
         <VisionSection />
-        <JurySection />
+        {/* Temporarily hidden; retain for future use.
+<JurySection />
+*/}
         <EventsSection />
         <LandscapesSection />
         <JoinSection />
